@@ -1,0 +1,41 @@
+.MainContent {
+  width: 100%;
+  font-size: 18px;
+  max-width: 1324px;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.MainContent section {
+  background-color: #fff;
+  margin-bottom: 5px;
+  padding: 10px 15px;
+}
+
+.heading_title {
+  font-size: 18px;
+  font-family: 'open_sansbold';
+  cursor: pointer;
+}
+
+.header_ul {
+  border-bottom: 3px solid #009cde;
+  padding-bottom: 2px;
+  width: 70px;
+  height: 4px;
+}
+
+.label_span {
+  color: #131415;
+  font-size: 15px;
+}
+
+.Value_span {
+  color: #000;
+  font-size: 14px;
+  font-family: 'open_sanssemibold';
+}
+
+.fontstyle {
+  font-size: 14px;
+}

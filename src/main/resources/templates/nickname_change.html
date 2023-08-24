@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="flex justify-center items-center h-full">
+        <div class="rounded-lg WrapperScreen">
+            <h2 class="text-2xl font-bold">
+                닉네임 변경
+            </h2>
+            <form th:action="@{/user/nickname_change}" th:object="${userNicknameModifyForm}" method="post">
+                <div class="mt-5">
+                    <div class="id mt-5">
+                        <label class="inline-block mb-2">닉네임</label>
+                        <label class="inline-block mb-2" id="userNickChkTxt"></label>
+                        <input th:field="*{nickname}" name="nickname" id="nickname" type="text"
+                               class="border-gray-400 rounded-lg block w-full py-3 px-4 mb-3 text-sm placeholder-gray-400"
+                               placeholder="변경하실 닉네임을 입력해주세요.">
+                    </div>
+                    <div class="mt-5">
+                        <button id="checkNickFin" class="btn-3 flex justify-center py-3 items-center w-full rounded-lg"
+                                disabled>
+                              <span class="text-white">
+                                확인
+                              </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery-3.7.0.min.js"></script>
+<script src="/js/nick_change.js"></script>
+</body>
+</html>

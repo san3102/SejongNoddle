@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/detailView.css"/>
+    <meta charset="UTF-8">
+    <title>상세페이지</title>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Sejong Noodle</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">List</a></li>
+                <li class="active"><a href="#">Detail</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="navbar-form navbar-left" role="search" action="/search" method="get">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="keyword" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </li>
+                <li>
+                    <a sec:authorize="isAuthenticated()" th:href="@{|/user/${user.username}/mypage|}">
+                        my page
+                    </a>
+                </li>
+                <li>
+                    <a sec:authorize="isAnonymous()" th:href="@{/user/login}">
+                        login
+                    </a>
+                    <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">
+                        logout
+                    </a>
+                </li>
+                <li>
+                    <a sec:authorize="isAnonymous()" th:href="@{/user/signup}">
+                        signup
+                    </a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div id="card-container">
+    <div id="card-title" th:text="${restaurant.mtlty}">상호 명</div> <!-- 상호명 가져오기 -->
+    <div id="map" style="width:100%;height:400px;" th:data-address="${restaurant.roadNmAddr}"></div>
+    <div id="method">
+        <span class="card-item-title">도로명 주소</span>
+        <div style="height: 5px;"></div>
+        <ul>
+            <li th:text="${restaurant.roadNmAddr}"></li>
+        </ul>
+    </div>
+    <div id="method">
+        <span class="card-item-title">전화번호</span>
+        <div style="height: 5px;"></div>
+        <ul>
+            <li th:text="${restaurant.telno}"></li>
+        </ul>
+    </div>
+    <div id="method">
+        <span class="card-item-title">리뷰</span><br/><br/>
+        <div th:each="reviewList : ${reviewList}">
+            <a th:href="@{|/test/load/${reviewList.id}|}" th:text="${reviewList.title}"></a>
+        </div>
+        <a th:href="@{|/create/review/${restaurant.mtlty}|}">리뷰 작성</a>
+    </div>
+    <div id="method">
+        <span class="card-item-title">관련 블로그 리뷰</span><br/><br/>
+        <div th:each="crawlingDataList : ${crawlingDataList}">
+            <a th:href="${crawlingDataList.link}"><span th:text="${crawlingDataList.title}"></span></a><br/>
+            <span th:text="${crawlingDataList.content}"></span>
+            <hr/>
+        </div>
+    </div>
+</div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- {kakao.api.key} 부분 실제 카카오 스크립트 api key 추가해줘야함 -->
+<!--<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={kakao script key}&libraries=services,clusterer,drawing"></script>-->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e5bf32f783fbb8bcc420d8e7bfc4fbc9&libraries=services,clusterer,drawing"></script>
+<script src="/js/kakaoMaps.js"></script>
+</body>
+</html>

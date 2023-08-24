@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="/css/index.css"/>
+    <meta charset="UTF-8">
+    <title>메인페이지</title>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Sejong Noodle</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">List</a></li>
+        <li><a href="#">Detail</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <form class="navbar-form navbar-left" action="/search" method="get">
+            <div class="form-group">
+              <input type="text" class="form-control" name="keyword" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </li>
+        <li>
+          <a sec:authorize="isAuthenticated()" th:href="@{|/user/${user.username}/mypage|}">
+            my page
+          </a>
+        </li>
+        <li>
+          <a sec:authorize="isAnonymous()" th:href="@{/user/login}">
+            login
+          </a>
+          <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">
+            logout
+          </a>
+        </li>
+        <li>
+          <a sec:authorize="isAnonymous()" th:href="@{/user/signup}">
+            signup
+          </a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="main-container">
+  <div class="card">
+    <div class="card-img" style="background-image:url(https://i.namu.wiki/i/XOXY4Q4ix1v8LxEHg0MejrPs8uT6SKWM57pexVwJ-pqK0c7y8so9b70RMIRqaJ0aI1lVD7Uy0auXNyP_bk8_Ig.webp);">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="/list/korean">MOVE</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-content">
+      <a href="/list/korean">
+        <h2>한식</h2>
+        <p>뭐니뭐니해도 한식이지!</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img" style="background-image:url(https://cdn.kormedi.com/wp-content/uploads/2021/10/r658x041.jpg);">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="/list/china">MOVE</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-content">
+      <a href="/list/china">
+        <h2>중식</h2>
+        <p>다양한 향과 맛의 조화!</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-img" style="background-image:url(https://images.chosun.com/resizer/wsSVlD2KlkIAXTYSWUZxQSceAUE=/960x504/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/HS2MWHN32OMYMSDYNGYRIZCXNI.jpg);">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="/list/japan">MOVE</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-content">
+      <a href="/list/japan">
+        <h2>일식, 양식</h2>
+        <p>색다른게 땡기는걸?</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="/js/index.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+</html>

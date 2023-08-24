@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Restaurant List</h1>
+<ul>
+  <li th:each="restaurant : ${restaurants}">
+    <p th:text="${restaurant.mtlty}"></p>
+    <!-- 여기서 ${restaurant}은 컨트롤러에서 추가한 데이터를 가리킵니다 -->
+  </li>
+</ul>
+
+<div id="map" style="width:500px;height:400px;"></div>
+
+<!-- services와 clusterer, drawing 라이브러리 포함해서 불러오기 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=[카카오 JavaScript 키]=services,clusterer,drawing"></script>
+<script src="/js/test.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="/css/mypage.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Sejong Noodle</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">List</a></li>
+                <li><a href="#">Detail</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="navbar-form navbar-left" role="search" action="/search" method="get">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="keyword" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </li>
+                <li class="active">
+                    <a sec:authorize="isAuthenticated()" th:href="@{/user/mypage}">
+                        my page
+                    </a>
+                </li>
+                <li>
+                    <a sec:authorize="isAnonymous()" th:href="@{/user/login}">
+                        login
+                    </a>
+                    <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">
+                        logout
+                    </a>
+                </li>
+                <li>
+                    <a sec:authorize="isAnonymous()" th:href="@{/user/signup}">
+                        signup
+                    </a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="MainContent">
+    <section>
+        <div>
+            <span class="heading_title">User Information</span>
+            <div class="header_ul mb-1"></div>
+            <div style="border:1px solid #dcdbdb; padding:10px 15px;">
+                <table style="width: 100%;">
+                    <tr style="font-weight:bold">
+                        <td style="width:36%">
+                            <span class="label_span">E-Mail </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:1px">
+                            <span class="Value_span" th:text="${user.username}"></span>
+                    </tr>
+                    <tr style="font-weight:bold">
+                        <td style="padding-top:10px">
+                            <span class="label_span">Nickname</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:1px">
+                            <span class="Value_span" th:text="${user.nickname}"></span>
+                        </td>
+                        <td style="text-align: right;" class="check_btn">
+                            <a href="/user/nickname_change"><span class="label_span">닉네임 변경</span></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section>
+        <span class="heading_title">Reviews</span>
+        <div class="header_ul mb-1"></div>
+        <div style="border:1px solid #dcdbdb;padding:10px 15px">
+            <table style="width:100%">
+                <tr th:each="review : ${reviewList}">
+                    <td style="width:36%;font-weight:700">
+                        <a th:href="@{|/test/load/${review.id}|}">
+                            <span th:text="'[' + ${review.restaurantName} + ']'" class="label_span"></span>
+                            <span th:text="${review.title}" class="label_span"></span>
+                        </a>
+                    </td>
+                    <td style="text-align: right;" class="check_btn">
+                        <a th:href="@{|/review/modify/${review.id}|}" style="margin-right: 10px;"><span class="label_span">수정</span></a>
+                        <a href="#" class="delete_btn"><span class="label_span delete_post" th:data-post-id="${review.id}">삭제</span></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="/js/jquery-3.7.0.min.js"></script>
+<script src="/js/mypage.js"></script>
+</body>
+</html>
