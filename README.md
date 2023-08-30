@@ -54,12 +54,12 @@
 
 ### 1. ERD Diagram
 
-<img src="https://github.com/san3102/personalProj/assets/103571921/1e637532-b406-403d-a308-60d2e724ee89" width="550px" height="500px"></img><br/>
+<img src="https://github.com/san3102/SejongNoddle/assets/103571921/02a028a4-0881-4fc3-9b37-b0c88ee2d14e" width="550px" height="500px"></img><br/>
 
 ### 2. Sequence Diagram
 #### 회원가입
 
-<img src="https://github.com/san3102/personalProj/assets/103571921/2a97db4d-cc96-42d8-ad83-9923d4eaee82" width="800px" height="300px"></img><br/>
+<img src="https://github.com/san3102/SejongNoddle/assets/103571921/aaa8a637-ee02-4525-a99b-a9f42e05459b" width="800px" height="300px"></img><br/>
 
 > **1. JavaScript 및 jQuery 사용** : 사용자가 닉네임, 비밀번호, 이메일 등의 정보를 입력받아 jQuery를 사용하여 이벤트 처리와 DOM 조작을 수행합니다. <br/><br/>
 > **2. 유효성 검사 및 상태 관리** : 사용자가 입력한 닉네임, 비밀번호, 이메일 등의 데이터를 실시간으로 유효성을 검사합니다. 예를 들어, 이메일과 닉네임은 정규식을 사용하여 형식이나 중복 여부를 확인하고, 비밀번호는 여러 조건을 만족하는지 확인합니다. <br/><br/>
@@ -77,7 +77,7 @@
 
 #### 리뷰 등록
 
-<img src="https://github.com/san3102/personalProj/assets/103571921/50987d5d-d7f7-46ce-b554-5c39be889256" width="850px" height="300px"></img><br/>
+<img src="https://github.com/san3102/SejongNoddle/assets/103571921/feae4a8b-6144-4c48-8879-8f9c0431929f" width="850px" height="300px"></img><br/>
 
 > **1. HTML** : 리뷰 작성 클릭 시 Thymeleaf 템플릿 엔진을 사용하여 리뷰 작성 페이지로 이동한 후, 리뷰작성 템플릿에서  Form 제출 시 작성한 제목, 내용 input Data를 서버로 전달합니다. <br/><br/>
 > **2. Controller**
@@ -307,11 +307,11 @@ public List<CrawlingData> getCrawlingDataList(String restaurantName) {
 
 ### 4. 결과물
 <div display="inline">
-        <img src="https://github.com/san3102/personalProj/assets/103571921/6889e7cb-3eb6-4404-8d72-73e8e08b27a3" width="400px" height="200px" align></img>
-        <img src="https://github.com/san3102/personalProj/assets/103571921/89c8cb7b-05ae-45ed-b02b-ebdf3523cc20" width="400px" height="200px"></img>
-        <img src="https://github.com/san3102/personalProj/assets/103571921/683f7397-f26b-4bbe-8068-51262d043734" width="400px" height="200px"></img>
-        <img src="https://github.com/san3102/personalProj/assets/103571921/0c311f8d-9e2a-47d2-aa93-cad52cac6bfc" width="400px" height="200px"></img>
-        <img src="https://github.com/san3102/personalProj/assets/103571921/a811b5ca-1521-4f56-8c7b-44f05fcdcc3a" width="400px" height="200px"></img>
+        <img src="https://github.com/san3102/SejongNoddle/assets/103571921/c21a9c35-eb57-4f52-9c71-2ddd6ed398cc" width="400px" height="200px" align></img>
+        <img src="https://github.com/san3102/SejongNoddle/assets/103571921/23af5b07-b0d5-4a04-a006-45f1a17c7fde" width="400px" height="200px"></img>
+        <img src="https://github.com/san3102/SejongNoddle/assets/103571921/43011102-9e07-4bb0-b8ee-3c4b26eddccc" width="400px" height="200px"></img>
+        <img src="https://github.com/san3102/SejongNoddle/assets/103571921/71e53b68-9214-44b7-a082-b233ab84ae7c" width="400px" height="200px"></img>
+        <img src="https://github.com/san3102/SejongNoddle/assets/103571921/87b289b2-44c0-4815-9f70-9fd16b21c6fa" width="400px" height="200px"></img>
 </div>
 
 <br/>
