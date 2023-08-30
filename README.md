@@ -1,6 +1,6 @@
 # Sejong Noddle
 
-![개인프로젝트 메인](https://github.com/san3102/personalProj/assets/103571921/79a5ce3c-2f78-4a5a-b20d-0fe8feeb37be)
+![개인프로젝트 메인](https://github.com/san3102/SejongNoddle/assets/103571921/79e9306c-836b-4b5e-ac98-ff840b54f2ab)
 
 
 ### 세종시 면요리 음식점 정보 사이트
